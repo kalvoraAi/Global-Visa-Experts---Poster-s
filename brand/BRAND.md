@@ -1,17 +1,36 @@
 # Global Visa Experts — Brand Kit
 
-Fill in the TODOs with **real** details only. Never put a guessed phone number,
-website or email on a poster — a wrong number sends real customers nowhere.
+Only use the real details below on posters. Never add a guessed phone number,
+website or email: a wrong number sends real customers nowhere.
+
+## Logo
+
+| File | Use on |
+|---|---|
+| [`logo/gve-logo.png`](logo/gve-logo.png) | White / light backgrounds (navy + orange, transparent) |
+| [`logo/gve-logo-white.png`](logo/gve-logo-white.png) | Dark / colour backgrounds (white + orange, transparent) |
+| [`logo/gve-logo-original.webp`](logo/gve-logo-original.webp) | Original file as supplied |
+
+- Tagline: **Where Dreams Take Flight.**
+- Logo colours: navy `#0A2547`, orange `#F77123`
+
+## Contact details
 
 | Item | Value |
 |---|---|
 | Company name | Global Visa Experts (GVE) |
-| Logo | TODO — add files to `brand/logo/` (PNG with transparent background) |
-| Phone / WhatsApp | TODO |
-| Website | TODO |
+| Phone | +91 93424 93425 |
+| Phone | +91 95819 93949 |
 | Email | TODO |
+| Website | TODO |
 | Instagram / socials | TODO |
-| Office address / city | TODO |
+
+## Office locations
+
+| City | Address |
+|---|---|
+| Vijayawada | Above Reflections Store, MG Road |
+| Guntur | Opp HDFC Bank, Lakshmipuram Main Road |
 
 ## Colours
 

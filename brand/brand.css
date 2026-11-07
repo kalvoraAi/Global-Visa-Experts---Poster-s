@@ -41,7 +41,7 @@ html, body { background: #222; }
 .topbar { display: flex; justify-content: space-between; align-items: center; }
 .wordmark { font: 800 30px/1 var(--font-display); letter-spacing: 1px; }
 .wordmark small { display: block; font-weight: 500; font-size: 18px; letter-spacing: 3px; opacity: .8; margin-top: 6px; }
-.logo { height: 80px; }
+.logo { height: 84px; display: block; }
 
 /* Headline: script + heavy bold */
 .script { font: italic 700 72px/1.1 var(--font-script); }
@@ -74,10 +74,14 @@ html, body { background: #222; }
 }
 .canvas.white .cta { background: var(--royal-1); color: var(--white); }
 .contact {
-  display: flex; justify-content: space-between; gap: 20px;
+  display: grid; gap: 12px;
   background: rgba(0,0,0,.25); border-radius: 24px; padding: 22px 30px;
-  font: 600 28px/1.2 var(--font-body);
+  font: 500 26px/1.25 var(--font-body);
 }
+.contact .row { display: flex; align-items: center; gap: 14px; }
+.contact .row.phones { font-weight: 700; font-size: 30px; }
+.contact svg { width: 30px; height: 30px; flex: none; fill: var(--accent); }
+.contact b { font-weight: 700; }
 .canvas.white .contact { background: var(--sky); }
 
 /* Decorations */
