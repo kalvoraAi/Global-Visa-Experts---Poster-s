@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="gve-format" content="story">
+<title>GVE — Story 9:16 template</title>
+<link rel="stylesheet" href="../brand/brand.css">
+<style>
+  /* Instagram covers the top ~250px and bottom ~340px of a story: keep text out of those zones */
+  .canvas { --w:1080px; --h:1920px; --safe-top:250px; --safe-bottom:340px; }
+  .globe { width:420px; height:420px; align-self:center; margin-top:60px; }
+</style>
+</head>
+<body>
+<div class="canvas teal">
+  <div class="blob" style="width:900px;height:900px;left:-300px;top:-300px"></div>
+  <div class="blob" style="width:700px;height:700px;right:-260px;bottom:-200px"></div>
+
+  <div class="content">
+    <div class="topbar">
+      <div class="wordmark">GLOBAL VISA EXPERTS<small>STUDY · WORK · SETTLE</small></div>
+    </div>
+
+    <div style="margin-top:80px">
+      <div class="script">Your future in</div>
+      <div class="headline accent">AUSTRALIA</div>
+    </div>
+
+    <!-- Simple CSS/SVG globe — swap for a real photo in assets/ -->
+    <svg class="globe" viewBox="0 0 200 200" fill="none" stroke="#fff" stroke-width="3">
+      <circle cx="100" cy="100" r="90"/>
+      <ellipse cx="100" cy="100" rx="40" ry="90"/>
+      <path d="M10 100h180M25 55h150M25 145h150"/>
+    </svg>
+
+    <div class="pill" style="margin-top:60px">Intake 2027 open</div>
+
+    <ul class="benefits" style="margin-top:50px">
+      <li>Top universities</li>
+      <li>Expert visa guidance</li>
+      <li>Free profile assessment</li>
+    </ul>
+
+    <div class="spacer"></div>
+    <div class="cta">Apply Now →</div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+
+# Large working files (keep them out of Git; store in drafts locally)
+*.psd
+*.ai
+*.mp4
+*.mov
