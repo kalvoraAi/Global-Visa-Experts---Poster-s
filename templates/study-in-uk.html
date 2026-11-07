@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="gve-format" content="post">
+<title>GVE — Study in UK (Graduate Dreams Take Flight)</title>
+<link rel="stylesheet" href="../brand/brand.css">
+<style>
+  .canvas { --w:1080px; --h:1350px; --gold:#E8C26A; --deep:#0D1A4A;
+    background: url('../assets/backgrounds/study-in-uk-bg.png') center / cover no-repeat; }
+  .abs { position: absolute; }
+
+  /* Header */
+  .brand-title { left:40px; top:56px; font: 700 34px/1 var(--font-brand); letter-spacing: 3px;
+    padding-bottom: 14px; border-bottom: 2px solid var(--gold); }
+  .partner { right:40px; top:34px; background:#fff; border-radius:18px; padding:10px 18px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.18); }
+  .partner img { height:70px; display:block; }
+
+  /* Courses card (glass) */
+  .card { left:37px; top:588px; width:303px; padding:26px 22px 24px;
+    background: rgba(255,255,255,.16); border:1.5px solid rgba(255,255,255,.35); border-radius:20px;
+    backdrop-filter: blur(6px); }
+  .card .label { font-size:15px; letter-spacing:4.5px; }
+  .course { font: 700 28px/1.18 var(--font-display); margin-top:16px; }
+  .course .serif { font-size:30px; font-weight:500; }
+  .divider { height:1.5px; margin:24px 0 20px; background: linear-gradient(90deg, rgba(232,194,106,.7), transparent); }
+  .why { list-style:none; margin-top:14px; display:grid; gap:12px; }
+  .why li { white-space:nowrap; font: 400 18px/1.2 var(--font-body); display:flex; align-items:center; gap:10px; }
+  .why li::before { content:""; width:8px; height:8px; background:var(--gold); transform:rotate(45deg); flex:none; }
+
+  /* Intake badge */
+  .badge { left:830px; top:596px; width:210px; height:210px; border-radius:50%;
+    background: rgba(255,255,255,.18); border:1.5px solid rgba(255,255,255,.35);
+    display:grid; place-items:center; }
+  .badge-in { width:190px; height:190px; border-radius:50%; border:1.5px solid var(--gold);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+  .badge .top { font: 600 15px/1 var(--font-body); letter-spacing:4px; }
+  .badge .serif { font-size:58px; line-height:1; margin:6px 0 16px; }
+  .badge .bottom { font: 600 20px/1 var(--font-body); letter-spacing:2.5px; }
+
+  /* CTA */
+  .apply { right:40px; top:1135px; padding:20px 34px; border-radius:999px;
+    background: linear-gradient(90deg, #F4D27E, #D9A845); color: var(--deep);
+    font: 700 30px/1 var(--font-brand); display:flex; align-items:center; gap:16px;
+    box-shadow: 0 10px 26px rgba(0,0,0,.25); }
+
+  /* Contact bar */
+  .bar { left:0; right:0; bottom:0; height:112px; background: var(--deep);
+    display:flex; flex-direction:column; justify-content:center; gap:10px; padding: 0 38px; }
+  .bar .r1 { display:flex; align-items:center; justify-content:center; gap:22px; }
+  .bar .r1 .label { font-size:15px; letter-spacing:4px; }
+  .bar .phones { font: 800 31px/1 var(--font-brand); letter-spacing:.5px; }
+  .bar .dot { color: var(--gold); margin: 0 14px; }
+  .bar .r2 { display:flex; align-items:center; justify-content:center; gap:18px; white-space:nowrap; font: 400 16.5px/1 var(--font-body); }
+  .bar .r2 b { font: 700 16.5px/1 var(--font-body); letter-spacing:2px; color: var(--gold); margin-right:10px; }
+  .bar .sep { width:1px; height:24px; background: rgba(255,255,255,.35); }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <!-- Background artwork already contains "Study In UK", Big Ben, plane and student -->
+
+  <div class="abs brand-title">GLOBAL VISA EXPERTS</div>
+
+  <!-- Partner university logo: replace with the official file in assets/partners/ -->
+  <div class="abs partner"><img src="../assets/partners/uel-logo-from-poster.png" alt="University of East London"></div>
+
+  <div class="abs card">
+    <div class="label">Available courses</div>
+    <div class="course"><span class="serif">MSc</span> Artificial Intelligence</div>
+    <div class="course"><span class="serif">MSc</span> Computer Science</div>
+    <div class="divider"></div>
+    <div class="label">Why UK</div>
+    <ul class="why">
+      <li>Industry-relevant courses</li>
+      <li>Global student community</li>
+      <li>Modern London campus</li>
+      <li>Excellent connectivity</li>
+    </ul>
+  </div>
+
+  <div class="abs badge"><div class="badge-in">
+    <div class="top">ENROLL FOR</div>
+    <div class="serif">Jan</div>
+    <div class="bottom">2027 INTAKE</div>
+  </div></div>
+
+  <div class="abs apply">Apply Now
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </div>
+
+  <div class="abs bar">
+    <div class="r1"><span class="label">Call our experts</span>
+      <span class="phones">+91 93424 93425<span class="dot">•</span>+91 95819 93949</span></div>
+    <div class="r2">
+      <span><b>VIJAYAWADA</b>Above Reflections Store, MG Road</span>
+      <span class="sep"></span>
+      <span><b>GUNTUR</b>Opp HDFC Bank, Lakshmipuram Main Road</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
