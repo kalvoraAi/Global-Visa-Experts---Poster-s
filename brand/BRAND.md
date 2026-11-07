@@ -44,14 +44,21 @@ website or email: a wrong number sends real customers nowhere.
 Defined as CSS variables in [brand.css](brand.css). Use class `royal`, `crimson`,
 `teal` or `white` on `.canvas`.
 
-## Fonts
+## Fonts — always use only these
 
-- Headline: **Poppins** 800/900
-- Script line: **Lora** italic 700 (or a script font in `brand/fonts/`)
-- Body: **Poppins** / **Inter** 500–600
+Matched from the approved "Study in UK" poster. Files are in `brand/fonts/`
+(free Google Fonts, OFL licence) and load automatically via `brand.css`.
 
-Put font files in `brand/fonts/` and load them with `@font-face` so rendering
-works offline.
+| Font | CSS | Use for | Weights |
+|---|---|---|---|
+| **Montserrat** | `var(--font-brand)` | "GLOBAL VISA EXPERTS" header, phone numbers, "Apply Now" button | 700–800 |
+| **Poppins** | `var(--font-display)` | Big headline ("UK"), course names ("Artificial Intelligence") | 700–900 |
+| **Poppins** | `var(--font-body)` | Bullets, addresses, "Bachelor's • Master's", spaced labels ("AVAILABLE COURSES", "WHY UK") | 400–600 |
+| **Kaushan Script** | `var(--font-script)` / `.script` | Brush script line ("Study In") | 400 |
+| **Playfair Display Italic** | `var(--font-serif)` / `.serif` | Gold accent words ("MSc", "Jan") | 500–700 |
+
+Spaced labels: Poppins 600, uppercase, letter-spacing ~6px, gold `#E8C26A`
+(class `.label`).
 
 ## Copy rules
 

@@ -1,6 +1,8 @@
 /* Global Visa Experts — shared poster styles.
    Every template links this file. Change a colour here and every poster updates. */
 
+@import url('fonts/fonts.css');
+
 :root {
   /* Colour schemes (pick one per poster with a class on .canvas) */
   --royal-1: #1E3FA8;  --royal-2: #0F2370;
@@ -12,9 +14,14 @@
   --orange: #FF8A00;
   --white: #FFFFFF;
 
-  --font-display: 'Poppins', 'Segoe UI', Arial, sans-serif;
-  --font-body: 'Poppins', 'Inter', 'Segoe UI', Arial, sans-serif;
-  --font-script: 'Lora', 'Georgia', 'Times New Roman', serif;
+  --gold: #E8C26A;
+
+  /* GVE fonts — use ONLY these (files in brand/fonts) */
+  --font-display: 'Poppins', sans-serif;          /* big headline, course names: 800/900 */
+  --font-body: 'Poppins', sans-serif;             /* bullets, addresses, labels: 400-600 */
+  --font-script: 'Kaushan Script', cursive;       /* brush line: "Study In" */
+  --font-serif: 'Playfair Display', serif;        /* gold italic accent: "MSc", "Jan" */
+  --font-brand: 'Montserrat', sans-serif;         /* GLOBAL VISA EXPERTS, phones, CTA: 700/800 */
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -39,12 +46,14 @@ html, body { background: #222; }
 
 /* Top bar */
 .topbar { display: flex; justify-content: space-between; align-items: center; }
-.wordmark { font: 800 30px/1 var(--font-display); letter-spacing: 1px; }
+.wordmark { font: 700 40px/1 var(--font-brand); letter-spacing: 3px; text-transform: uppercase; }
 .wordmark small { display: block; font-weight: 500; font-size: 18px; letter-spacing: 3px; opacity: .8; margin-top: 6px; }
 .logo { height: 84px; display: block; }
 
 /* Headline: script + heavy bold */
-.script { font: italic 700 72px/1.1 var(--font-script); }
+.script { font: 400 80px/1.1 var(--font-script); margin-bottom: 14px; }
+.serif { font: italic 600 1em/1 var(--font-serif); color: var(--gold); }
+.label { font: 600 24px/1.2 var(--font-body); letter-spacing: 6px; text-transform: uppercase; color: var(--gold); }
 .headline { font: 900 140px/0.95 var(--font-display); text-transform: uppercase; letter-spacing: -2px; }
 .accent { color: var(--accent); }
 
@@ -58,7 +67,7 @@ html, body { background: #222; }
 
 /* Benefits */
 .benefits { list-style: none; display: grid; gap: 20px; }
-.benefits li { display: flex; align-items: center; gap: 18px; font: 600 34px/1.2 var(--font-body); }
+.benefits li { display: flex; align-items: center; gap: 18px; font: 500 34px/1.2 var(--font-body); }
 .benefits li::before {
   content: "✓"; flex: none; width: 52px; height: 52px; border-radius: 50%;
   display: grid; place-items: center;
@@ -69,7 +78,7 @@ html, body { background: #222; }
 .cta {
   display: inline-flex; align-items: center; gap: 14px; align-self: flex-start;
   background: var(--white); color: var(--navy);
-  font: 800 40px/1 var(--font-display); padding: 26px 48px; border-radius: 999px;
+  font: 700 40px/1 var(--font-brand); padding: 26px 48px; border-radius: 999px;
   box-shadow: 0 10px 30px rgba(0,0,0,.25);
 }
 .canvas.white .cta { background: var(--royal-1); color: var(--white); }
@@ -79,7 +88,7 @@ html, body { background: #222; }
   font: 500 26px/1.25 var(--font-body);
 }
 .contact .row { display: flex; align-items: center; gap: 14px; }
-.contact .row.phones { font-weight: 700; font-size: 30px; }
+.contact .row.phones { font: 800 32px/1.2 var(--font-brand); letter-spacing: .5px; }
 .contact svg { width: 30px; height: 30px; flex: none; fill: var(--accent); }
 .contact b { font-weight: 700; }
 .canvas.white .contact { background: var(--sky); }

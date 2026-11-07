@@ -1,0 +1,15 @@
+/* GVE poster fonts — local files so rendering works offline.
+   Matched from the approved "Study in UK" poster. Always use only these. */
+
+@font-face { font-family: 'Poppins'; font-weight: 400; src: url('poppins/Poppins-Regular.ttf') format('truetype'); }
+@font-face { font-family: 'Poppins'; font-weight: 500; src: url('poppins/Poppins-Medium.ttf') format('truetype'); }
+@font-face { font-family: 'Poppins'; font-weight: 600; src: url('poppins/Poppins-SemiBold.ttf') format('truetype'); }
+@font-face { font-family: 'Poppins'; font-weight: 700; src: url('poppins/Poppins-Bold.ttf') format('truetype'); }
+@font-face { font-family: 'Poppins'; font-weight: 800; src: url('poppins/Poppins-ExtraBold.ttf') format('truetype'); }
+@font-face { font-family: 'Poppins'; font-weight: 900; src: url('poppins/Poppins-Black.ttf') format('truetype'); }
+
+@font-face { font-family: 'Kaushan Script'; font-weight: 400; src: url('kaushan-script/KaushanScript-Regular.ttf') format('truetype'); }
+
+@font-face { font-family: 'Playfair Display'; font-style: italic; font-weight: 400 900; src: url('playfair-display/PlayfairDisplay-Italic-Variable.ttf') format('truetype'); }
+
+@font-face { font-family: 'Montserrat'; font-weight: 100 900; src: url('montserrat/Montserrat-Variable.ttf') format('truetype'); }
