@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Cormorant"; src: url("assets/fonts/cormorant-normal-300.woff2") format("woff2"); font-weight: 300 700; font-style: normal; font-display: block; }
+      @font-face { font-family: "Cormorant"; src: url("assets/fonts/cormorant-italic-300.woff2") format("woff2"); font-weight: 300 700; font-style: italic; font-display: block; }
+      @font-face { font-family: "Montserrat"; src: url("assets/fonts/montserrat.woff2") format("woff2"); font-weight: 100 900; font-display: block; }
+      :root { --ground: #000; --ink: #f4efe6; --warm: #e9d3a8; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #000; color: var(--ink); font-family: "Cormorant", serif; }
+
+      #stage { position: absolute; inset: 0; overflow: hidden; }
+      .shot { position: absolute; inset: 0; width: 1080px; height: 1920px; object-fit: cover; opacity: 0; }
+
+      /* finishing */
+      .vignette { position: absolute; inset: 0; pointer-events: none;
+        background: radial-gradient(ellipse 75% 55% at 50% 48%, rgba(0,0,0,0) 55%, rgba(0,0,0,.45) 100%); }
+      .fade-low { position: absolute; left: 0; right: 0; bottom: 0; height: 760px; pointer-events: none;
+        background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.35) 100%); }
+      .halation { position: absolute; inset: 0; pointer-events: none; mix-blend-mode: soft-light;
+        background: radial-gradient(ellipse 90% 50% at 50% 20%, rgba(255,214,160,.28), rgba(0,0,0,0) 70%); }
+      .leak { position: absolute; width: 1600px; height: 1600px; border-radius: 50%; mix-blend-mode: screen; pointer-events: none; opacity: 0;
+        background: radial-gradient(circle, rgba(255,196,120,.55) 0%, rgba(255,130,60,.22) 38%, rgba(0,0,0,0) 70%); }
+      #leak1 { left: -300px; top: 0px; }
+      #grain { position: absolute; left: -100px; top: -100px; width: 1280px; height: 2120px; opacity: .085; mix-blend-mode: overlay; pointer-events: none; }
+      .bar { position: absolute; left: 0; right: 0; height: 960px; background: #000; }
+      #barTop { top: 0; }
+      #barBot { bottom: 0; }
+      #black { position: absolute; inset: 0; background: #000; pointer-events: none; }
+
+      /* typography */
+      .t { position: absolute; left: 90px; right: 150px; text-align: center; text-shadow: 0 2px 10px rgba(0,0,0,.55), 0 0 40px rgba(0,0,0,.45); }
+      .kicker { font-family: "Montserrat"; font-weight: 500; font-size: 30px; letter-spacing: 16px; text-transform: uppercase; color: var(--warm); }
+      .line { font-style: italic; font-weight: 500; font-size: 80px; line-height: 1.12; }
+      #k1 { top: 1080px; }
+      #l1 { top: 960px; }
+      #l2 { top: 960px; }
+      #l3 { top: 1000px; }
+      #title { top: 300px; }
+      #title .name { font-weight: 500; font-size: 140px; letter-spacing: 24px; padding-left: 24px; line-height: 1; }
+      #title .rule { width: 260px; height: 2px; margin: 26px auto 22px; background: var(--warm); transform-origin: center; }
+      #title .sub { font-style: italic; font-weight: 500; font-size: 62px; color: var(--warm); }
+      #title .place { margin-top: 30px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920">
+      <div id="stage">
+        <video id="v1" class="clip shot" src="assets/clips/c1.mp4" data-start="0"    data-duration="3.6" data-track-index="0" muted playsinline></video>
+        <video id="v2" class="clip shot" src="assets/clips/c2.mp4" data-start="3.0"  data-duration="3.2" data-track-index="1" muted playsinline></video>
+        <video id="v3" class="clip shot" src="assets/clips/c3.mp4" data-start="5.6"  data-duration="3.2" data-track-index="0" muted playsinline></video>
+        <video id="v4" class="clip shot" src="assets/clips/c4.mp4" data-start="8.2"  data-duration="3.2" data-track-index="1" muted playsinline></video>
+        <video id="v5" class="clip shot" src="assets/clips/c5.mp4" data-start="10.8" data-duration="2.8" data-track-index="0" muted playsinline></video>
+        <video id="v6" class="clip shot" src="assets/clips/c6.mp4" data-start="13.0" data-duration="3.4" data-track-index="1" muted playsinline></video>
+        <video id="v7" class="clip shot" src="assets/clips/c7.mp4" data-start="15.9" data-duration="4.1" data-track-index="0" muted playsinline></video>
+      </div>
+
+      <audio id="score" src="assets/audio/score.m4a" data-start="0" data-duration="20" data-volume="1" data-track-index="9"></audio>
+
+      <div class="halation"></div>
+      <div id="leak1" class="leak"></div>
+      <div class="vignette"></div>
+      <div class="fade-low"></div>
+      <svg id="grain" viewBox="0 0 1280 2120" preserveAspectRatio="none">
+        <filter id="gf"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="5" stitchTiles="stitch" /><feColorMatrix type="saturate" values="0" /></filter>
+        <rect width="100%" height="100%" filter="url(#gf)" />
+      </svg>
+
+      <!-- text -->
+      <div id="k1" class="t kicker clip" data-start="0.8" data-duration="2.4" data-track-index="3">Kashmir · India</div>
+      <div id="l1" class="t line clip" data-start="3.9" data-duration="3.4" data-track-index="3">where rivers are born<br />from snow</div>
+      <div id="l2" class="t line clip" data-start="8.6" data-duration="3.1" data-track-index="3">and light falls through<br />ancient pines</div>
+      <div id="l3" class="t line clip" data-start="13.3" data-duration="2.6" data-track-index="3">time slows down.</div>
+      <div id="title" class="t clip" data-start="16.4" data-duration="3.6" data-track-index="4">
+        <div class="name">SONMARG</div>
+        <div class="rule"></div>
+        <div class="sub">the meadow of gold</div>
+        <div class="kicker place">Jammu &amp; Kashmir</div>
+      </div>
+
+      <!-- letterbox + fades -->
+      <div id="barTop" class="bar"></div>
+      <div id="barBot" class="bar"></div>
+      <div id="black"></div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const BAR = 200; // final letterbox bar height
+
+      /* grain: stepped jitter at 12 fps (film-like) */
+      let seed = 98765;
+      const rnd = () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296);
+      for (let t = 0; t < 20; t += 1 / 12) tl.set("#grain", { x: Math.round((rnd() - .5) * 160), y: Math.round((rnd() - .5) * 160) }, t);
+
+      /* opening: bars open from the centre like an iris, then black lifts */
+      tl.fromTo("#black", { opacity: 1 }, { opacity: 0, duration: 1.2, ease: "power1.inOut" }, 0.0);
+      tl.fromTo("#barTop", { y: 0 }, { y: -(960 - BAR), duration: 2.0, ease: "power3.inOut" }, 0.1);
+      tl.fromTo("#barBot", { y: 0 }, { y: (960 - BAR), duration: 2.0, ease: "power3.inOut" }, 0.1);
+
+      /* shots: slow drift + cross-dissolves */
+      const shots = [
+        // id, start, dur, from, to, origin
+        ["#v1", 0.0, 3.6, { scale: 1.12, y: 20 }, { scale: 1.04, y: -10 }, "50% 50%"],
+        ["#v2", 3.0, 3.2, { scale: 1.04 }, { scale: 1.12 }, "50% 55%"],
+        ["#v3", 5.6, 3.2, { scale: 1.08, y: 30 }, { scale: 1.08, y: -30 }, "50% 50%"],
+        ["#v4", 8.2, 3.2, { scale: 1.18 }, { scale: 1.24 }, "50% 25%"],
+        ["#v5", 10.8, 2.8, { scale: 1.1 }, { scale: 1.02 }, "50% 50%"],
+        ["#v6", 13.0, 3.4, { scale: 1.1, x: -30 }, { scale: 1.1, x: 30 }, "50% 50%"],
+        ["#v7", 15.9, 4.1, { scale: 1.02 }, { scale: 1.12 }, "50% 45%"],
+      ];
+      const XF = 0.6; // dissolve length
+      shots.forEach(([id, s, d, a, b, o], i) => {
+        tl.fromTo(id, { ...a, transformOrigin: o }, { ...b, duration: d, ease: "none", immediateRender: false }, s);
+        if (i === 0) tl.set(id, { opacity: 1 }, 0);
+        else tl.fromTo(id, { opacity: 0 }, { opacity: 1, duration: XF, ease: "sine.inOut", immediateRender: false }, s);
+      });
+
+      /* warm light leak across the sun-ray shot */
+      tl.fromTo("#leak1", { opacity: 0, x: -200 }, { opacity: 0.9, x: 150, duration: 1.0, ease: "sine.out", immediateRender: false }, 8.0);
+      tl.to("#leak1", { opacity: 0, x: 500, duration: 1.6, ease: "sine.in" }, 9.0);
+      tl.fromTo("#leak1", { opacity: 0, x: 400, y: -200 }, { opacity: 0.6, x: 100, duration: 1.2, ease: "sine.out", immediateRender: false }, 16.1);
+      tl.to("#leak1", { opacity: 0, duration: 1.6, ease: "sine.in" }, 17.3);
+
+      /* text: slow fades with a gentle blur-to-sharp rise */
+      const soft = (sel, s, d) => {
+        tl.fromTo(sel, { opacity: 0, y: 24, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 1.0, ease: "power2.out", immediateRender: false }, s);
+        tl.to(sel, { opacity: 0, y: -12, filter: "blur(8px)", duration: 0.7, ease: "power1.in" }, s + d - 0.7);
+      };
+      soft("#k1", 0.8, 2.4);
+      soft("#l1", 3.9, 3.4);
+      soft("#l2", 8.6, 3.1);
+      soft("#l3", 13.3, 2.6);
+
+      /* title */
+      tl.fromTo("#title .name", { opacity: 0, scale: 1.08, filter: "blur(14px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 1.6, ease: "power3.out", immediateRender: false }, 16.4);
+      tl.fromTo("#title .rule", { scaleX: 0 }, { scaleX: 1, duration: 1.0, ease: "power2.inOut", immediateRender: false }, 16.9);
+      tl.fromTo("#title .sub", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 1.0, ease: "power2.out", immediateRender: false }, 17.2);
+      tl.fromTo("#title .place", { opacity: 0 }, { opacity: 1, duration: 1.0, ease: "power1.out", immediateRender: false }, 17.6);
+
+      /* ending: fade to black */
+      tl.to("#black", { opacity: 1, duration: 1.0, ease: "power1.in" }, 19.0);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
