@@ -45,7 +45,7 @@
       <div><b>Work model</b>Hybrid</div>
       <div><b>Process</b>Virtual &amp; face to face</div>
     </div>
-    <p class="fee" style="margin-bottom:0">ℹ️ <span id="agencyLine"></span> Training &amp; placement charges apply: a one-time payment <b>only after you get the job</b>. No advance payment, no EMI, no salary deductions, no original documents taken.</p>
+    <p class="fee" style="margin-bottom:0">ℹ️ <span id="agencyLine"></span> Training &amp; placement fee: <b>₹1,30,000 (one-time)</b>, paid <b>only after you get the job</b>. No advance payment, no EMI, no salary deductions, no original documents taken.</p>
   </div>
 
   <form id="form" class="card" novalidate>
@@ -78,10 +78,10 @@
       <label><input type="radio" name="shift" value="no">No</label>
     </div>
 
-    <label class="q">6. Are you OK with the one-time placement charge, paid only after you get the job?</label>
+    <label class="q">6. The training &amp; placement fee is ₹1,30,000 (one-time), paid only after you get the job. Can you pay this?</label>
     <div class="opts">
-      <label><input type="radio" name="fee" value="Yes">Yes</label>
-      <label><input type="radio" name="fee" value="no">No</label>
+      <label><input type="radio" name="fee" value="Yes">Yes, I can pay ₹1,30,000 after getting the job</label>
+      <label><input type="radio" name="fee" value="no">No, I cannot pay this amount</label>
     </div>
 
     <label class="q">7. Communication: introduce yourself in English and say why you want a career in HR</label>
@@ -135,7 +135,7 @@
     if (d.year === "other") reasons.push("This role is only for 2025 and 2026 pass-outs.");
     if (d.pct === "below") reasons.push("A minimum of 60% in academics is required.");
     if (d.shift === "no") reasons.push("The role requires a rotational US shift.");
-    if (d.fee === "no") reasons.push("Applicants must agree to the one-time placement charge.");
+    if (d.fee === "no") reasons.push("This opening is only for candidates who can pay the ₹1,30,000 placement fee.");
 
     if (reasons.length) {
       form.classList.add("hidden");
@@ -155,7 +155,7 @@ Degree: ${d.degree}
 Year of passing: ${d.year}
 Percentage: ${d.pct}
 US shift OK: ${d.shift}
-Placement charge OK: ${d.fee}
+Can pay ₹1,30,000 fee after job: ${d.fee}
 
 *About me:*
 ${d.intro.trim()}
